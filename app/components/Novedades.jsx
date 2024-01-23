@@ -22,6 +22,7 @@ const Novedades = () => {
             {data?.slice(4, 8).map((cafe)=>{
               return(
                 <ProductCard 
+                infoCafe={cafe}
                 key={cafe.id} 
                 cafeImg={cafe.img_url} 
                 name={cafe.brand} 

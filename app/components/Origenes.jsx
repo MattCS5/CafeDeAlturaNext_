@@ -10,14 +10,14 @@ const Origenes = () => {
   return (
     <div className="flex flex-col  p-10 gap-10 items-center">
       <h2 className="flex text-[rgb(42,91,69)] text-2xl font-medium">
-        {" "}
-        Últimos orígenes{" "}
+        Últimos orígenes
       </h2>
 
       <div className=" flex flex-wrap gap-6 justify-center">
         {data?.map((cafe) => {
           return (
             <ProductCard
+              infoCafe={cafe}
               key={cafe.id}
               cafeImg={cafe.img_url}
               name={cafe.brand}

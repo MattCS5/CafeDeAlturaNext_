@@ -3,13 +3,16 @@ import React, { useContext } from 'react';
 import { DataContext } from "../context/DataContext";
 
 
-const ProductCard = ({ cafeImg, name, price, available }) => {
+const ProductCard = ({ cafeImg, name, price, available, infoCafe }) => {
 
   const {dispatch} = useContext(DataContext)
 
-  const handleAddFromCart = (product) => {
+  const handleAddToCart = (product) => {
     console.log(product);
-    dispatch({ action: "ADD_ITEM", product: product});
+    dispatch(
+      {
+      accion: "ADD_ITEM",
+      products: product});
 }
 
 
@@ -22,8 +25,8 @@ const ProductCard = ({ cafeImg, name, price, available }) => {
           <p>{price.toFixed(2)}€</p>
         </div>
         <Button
-    
-          onClick={handleAddFromCart}
+
+          onClick={()=>handleAddToCart(infoCafe)}
           intent={available ? "añadir" : "agotado"}
           size={"small"}
           className={`font-outfit ${

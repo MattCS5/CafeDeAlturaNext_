@@ -1,12 +1,15 @@
 const cartReducer = (cart, dispatch) => {
-  switch (dispatch.action) {
+
+  switch (dispatch.accion) {
     case "ADD_ITEM":
+      // const productCoffe= card.find((item)=>item._id=== dispatch.item._id);
       return [
         ...cart,
         {
-          id: dispatch.product._id,
-          name: dispatch.product.brand,
-          price: dispatch.product.price,
+          id: dispatch.products._id,
+          name: dispatch.products.brand,
+          price: dispatch.products.price,
+          img: dispatch.products.img_url,
         },
       ];
 
