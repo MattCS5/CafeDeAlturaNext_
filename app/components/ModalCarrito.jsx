@@ -4,15 +4,22 @@ import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 
 
 const ShoppingCart = () => {
   const { state, dispatch } = useContext(DataContext);
-  console.log(state);
 
+  // useEffect(() => {
+    
+  // })
   const handleRemoveToCart = (product) => {
-    dispatch({ action: "REMOVE_ITEM", products: product });
+    dispatch({ accion: "REMOVE_ITEM", products: product });
+    console.log(product);
   };
+  
+
+
 
   if (state.length === 0) {
     return (
@@ -37,13 +44,8 @@ const ShoppingCart = () => {
               <p className="card-text">Price: {item.price.toFixed(2)}€</p>
             </div>
             <div className=" flex gap-2">
-              
-              <Image src={menos} alt="cafe" width={80} height={80} />
-              <Image src={item.img} alt="cafe" width={80} height={80} />
               <Image src={item.img} alt="cafe" width={80} height={80} />
             </div>  
-            
-
             <button
               className="text-red-400 font-outfit"
               type="button"

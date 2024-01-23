@@ -14,7 +14,7 @@ const cartReducer = (cart, dispatch) => {
       ];
 
     case "REMOVE_ITEM":
-      return cart.filter((item) => item._id !== dispatch.productId);
+      return cart.filter((item) => item.id !== dispatch.products._id);
 
     default:
       return cart;
