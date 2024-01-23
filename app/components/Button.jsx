@@ -1,6 +1,7 @@
 import React from 'react'
 import { cva } from "class-variance-authority";
 import Image from 'next/image';
+
 //class-variance-authority: library
 
 const ButtonVariants = cva(
@@ -49,12 +50,12 @@ const ButtonVariants = cva(
    }
 );
 
+export default function Button({ intent, size, roundness, children,imagen, onClick}) {
 
-export default function Button({ intent, size, roundness, children,imagen}) {
   
 
    return (
-      <button className={ButtonVariants ({ intent, size, roundness, imagen })}>
+      <button className={ButtonVariants ({ intent, size, roundness, imagen })} onClick={onClick}>
         {imagen && <Image  width={20} height={20} src={imagen} alt="" />}
         {children}
       </button>

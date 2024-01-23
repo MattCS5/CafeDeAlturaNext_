@@ -70,7 +70,11 @@ const Navbar = () => {
           <Image src={Carrito} alt="carrito" height={25} width={25} />
         </button>
       </div>
-      <div>{open && <ModalCarrito />}</div>
+
+      <div>
+        {open && <ModalCarrito />}
+      </div>
+
     </div>
   );
 };

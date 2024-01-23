@@ -1,11 +1,12 @@
 import React from 'react'
+import Carrito from '../components/Carrito'
 
-const Carrito = () => {
+const page = () => {
   return (
     <div>
-      
+      <Carrito/>
     </div>
   )
 }
 
-export default Carrito
+export default page

@@ -4,14 +4,14 @@ const cartReducer = (cart, dispatch) => {
       return [
         ...cart,
         {
-          id: dispatch.products._id,
-          name: dispatch.products.brand,
-          price: dispatch.products.price,
+          id: dispatch.product._id,
+          name: dispatch.product.brand,
+          price: dispatch.product.price,
         },
       ];
 
     case "REMOVE_ITEM":
-      return cart.filter((item) => item._id !== dispatch.product);
+      return cart.filter((item) => item._id !== dispatch.productId);
 
     default:
       return cart;

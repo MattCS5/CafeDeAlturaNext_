@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
+import Link from "next/link";
 
 const ShoppingCart = () => {
   const { state, dispatch } = useContext(DataContext);
@@ -27,24 +28,26 @@ const ShoppingCart = () => {
             <h5 className="card-title">{item.name}</h5>
             <p className="card-text">Price: {item.price}</p>
             <button
-              className="bg-red-400"
+              className="text-red-400 font-outfit"
               type="button"
-              onClick={() => handleRemoveFromCart(item._id)}
+              onClick={() => handleRemoveFromCart(item.id)}
             >
-              Remove from Cart
-            </button>
-            <button
-              className="bg-red-400"
-              type="button"
-              onClick={() => handleAddFromCart(item._id)}
-            >
-              Add from Cart
+              Eliminar
             </button>
           </div>
         </div>
       ))}
+      <div className="flex flex-col pt-3">
+        <Link
+          href="/bagShopPage"
+          className="flex gap-2 py-3 px-6 rounded bg-[#515051]"
+        >
+          Ir a la Cesta
+        </Link>
+      </div>
     </div>
   );
 };
 
 export default ShoppingCart;
+

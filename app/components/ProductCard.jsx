@@ -1,11 +1,18 @@
-import React from "react";
 import Button from "./Button";
+import React, { useContext } from 'react';
+import { DataContext } from "../context/DataContext";
 
-// import { DataContext } from "../context/DataContext";
 
-const ProductCard = ({ cafeImg, name, price, available, funcion }) => {
-  // const { data } = useContext(DataContext);
-  // console.log(data);
+const ProductCard = ({ cafeImg, name, price, available }) => {
+
+  const {dispatch} = useContext(DataContext)
+
+  const handleAddFromCart = (product) => {
+    console.log(product);
+    dispatch({ action: "ADD_ITEM", product: product});
+}
+
+
   return (
     <div className={`group ${available ? "opacity-100" : "opacity-40"}`}>
       <div className="flex flex-col gap-6 border-2 rounded group-hover:bg-[#E3DED7] p-6 justify-center items-center">
@@ -16,7 +23,7 @@ const ProductCard = ({ cafeImg, name, price, available, funcion }) => {
         </div>
         <Button
     
-          onClick={ funcion}
+          onClick={handleAddFromCart}
           intent={available ? "añadir" : "agotado"}
           size={"small"}
           className={`font-outfit ${

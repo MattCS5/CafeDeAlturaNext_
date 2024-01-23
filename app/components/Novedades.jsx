@@ -8,13 +8,9 @@ import Image from 'next/image';
 import { DataContext } from '../context/DataContext';
 
 const Novedades = () => {
-  const { data, dispatch } = useContext(DataContext) 
+  const { data } = useContext(DataContext) 
   console.log(data);
   
-  const handleAddFromCart = (product) => {
-    console.log(product);
-    dispatch({ action: "ADD_ITEM", product: product});
-}
 
 
   return (
@@ -31,7 +27,6 @@ const Novedades = () => {
                 name={cafe.brand} 
                 price={cafe.price}
                 available={cafe.available}
-                funcion= {()=>handleAddFromCart(cafe)}
                 />
               )
             })}
