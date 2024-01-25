@@ -9,7 +9,6 @@ import { DataContext } from '../context/DataContext';
 
 const Novedades = () => {
   const { data } = useContext(DataContext) 
-  console.log(data);
   
 
 

@@ -13,7 +13,6 @@ const ShoppingCart = () => {
   
   const handleRemoveAllToCart = (product) => {
     dispatch({ accion: "REMOVE_ALL", products: product });
-    console.log(product);
   };
   
   const handleRemoveToCart = (product) => {
@@ -56,7 +55,7 @@ const ShoppingCart = () => {
             <button
               className="text-red-400 font-outfit"
               type="button"
-              onClick={() => handleRemoveToCart(state)}
+              onClick={() => handleRemoveToCart(item)}
             >
               Eliminar
             </button>
