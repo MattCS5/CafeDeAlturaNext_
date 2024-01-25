@@ -1,5 +1,6 @@
 const cartReducer = (cart, dispatch) => {
 
+
   switch (dispatch.accion) {
     case "ADD_ITEM":
       // const productCoffe= card.find((item)=>item._id=== dispatch.item._id);
@@ -13,8 +14,10 @@ const cartReducer = (cart, dispatch) => {
         },
       ];
 
-    case "REMOVE_ITEM":
-      return cart.filter((item) => item.id !== dispatch.products._id);
+    case "REMOVE_ALL":
+      
+      return cart.filter((item) => item.id === dispatch.products._id);
+      
 
     default:
       return cart;

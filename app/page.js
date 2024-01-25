@@ -6,7 +6,7 @@ import Faq from './components/Faq'
 import WraperDos from './components/WraperDos'
 import Split from './components/Split';
 import Footer from './components/Footer'
-import Navbar from './components/Navbar';
+
 
 export default function Home() {
   return (

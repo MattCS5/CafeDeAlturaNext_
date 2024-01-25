@@ -19,7 +19,7 @@ const Novedades = () => {
       <h2 className='flex text-[rgb(42,91,69)] text-2xl font-medium'> Novedades </h2>
 
       <div className=' flex flex-wrap gap-6 justify-center'>
-            {data?.slice(4, 8).map((cafe)=>{
+            {data?.slice(0, 4).map((cafe)=>{
               return(
                 <ProductCard 
                 infoCafe={cafe}

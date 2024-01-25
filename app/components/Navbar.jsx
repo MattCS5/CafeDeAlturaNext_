@@ -11,8 +11,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      <div className="h-16 bg-black text-white mb-4 flex items-center  justify-between py-3 px-10 font-outfit fixed w-full"> 
+    <div className="  h-16 bg-black text-white mb-4 flex items-center  justify-between py-3 px-10 font-outfit fixed top-0  w-full">
+      
         <div>
           <Link className="text-2xl flex gap-2 items-center outfit" href="/">
             <p>cafedealtura.com</p>
@@ -69,7 +69,7 @@ const Navbar = () => {
         <button onClick={() => setOpen(!open)}>
           <Image src={Carrito} alt="carrito" height={25} width={25} />
         </button>
-      </div>
+      
 
       <div>
         {open && <ModalCarrito />}

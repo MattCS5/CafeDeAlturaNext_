@@ -3,9 +3,8 @@ import Carrito from '../components/Carrito'
 
 const page = () => {
   return (
-    <div>
-      <Carrito/>
-    </div>
+    <div className='mt-20'> <Carrito/></div>
+   
   )
 }
 
