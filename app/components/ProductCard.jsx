@@ -8,7 +8,7 @@ const ProductCard = ({ cafeImg, name, price, available, infoCafe }) => {
   const {dispatch} = useContext(DataContext)
 
   const handleAddToCart = (product) => {
-    console.log(product);
+    
     dispatch(
       {
       accion: "ADD_ITEM",

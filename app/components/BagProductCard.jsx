@@ -1,34 +1,22 @@
 "use client";
-
+import React from "react";
+import Envio from "./Envio";
+import { Minus, Plus } from "lucide-react";
+import Image from "next/image";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import Link from "next/link";
-import Image from "next/image";
-import { Minus, Plus } from "lucide-react";
 
-const ShoppingCart = () => {
-  const handleRemoveAllToCart = (product) => {
-    dispatch({ accion: "REMOVE_ALL", products: product });
-  };
-
+const BagProductCard = () => {
   const handleCounter = (product, accionToDo) => {
     dispatch({ accion: "COUNTER", products: product, plusOrMinus: accionToDo });
   };
 
   const { state, dispatch } = useContext(DataContext);
-
-  if (state.length === 0) {
-    return (
-      <div className="fixed top-16 right-0 p-5 bg-black text-white rounded-b-xl font-outfit">
-        <h2>El carrito está vacío...</h2>
-      </div>
-    );
-  }
-
   return (
-    <div className=" flex  flex-col fixed top-16 right-0 p-5  bg-[#E3DED7]  text-black rounded-b-xl font-outfit z-10 ">
-      <h2>Shopping Cart</h2>
-      {state.map((item) => (
+    <div className="flex flex-col gap-6  ">
+      <div className="flex flex-col">
+        <h2 className="font-outfit text-lg font-semibold">Productos</h2>
+        {state.map((item) => (
           <div
             className="flex p-2 gap-6  font-outfit justify-between "
             key={item.id}
@@ -44,7 +32,7 @@ const ShoppingCart = () => {
                 </button>
 
                 <div className="bg-[#F7F5F3] rounded-full w-6 h-6 justify-center text-center">
-                  <p className=" text-black">
+                  <p>
                     {item.quantity}
                   </p>
                 </div>
@@ -74,25 +62,14 @@ const ShoppingCart = () => {
             </div>
           </div>
         ))}
+        <div className="h-[1px] bg-[#E3DED7] "></div>
+      </div>
 
-      <button
-        className="text-red-400 font-outfit"
-        type="button"
-        onClick={() => handleRemoveAllToCart(state)}
-      >
-        <b>Eliminar</b>
-      </button>
-
-      <div className="flex flex-col pt-3">
-        <Link
-          href="/bagShopPage"
-          className="flex gap-2 py-3 px-6 rounded text-white  bg-[#515051]"
-        >
-          Ir a la Cesta
-        </Link>
+      <div>
+        <Envio />
       </div>
     </div>
   );
 };
 
-export default ShoppingCart;
+export default BagProductCard;

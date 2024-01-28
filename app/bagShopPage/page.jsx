@@ -1,9 +1,11 @@
 import React from 'react'
-import Carrito from '../components/Carrito'
+import Cesta from '../components/Cesta'
 
 const page = () => {
   return (
-    <div className='mt-20'> <Carrito/></div>
+    <div className='mt-20'>
+      <Cesta/>
+    </div>
    
   )
 }
