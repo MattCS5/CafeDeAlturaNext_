@@ -57,7 +57,7 @@ const BagProductCard = () => {
 
             <div>
               <p className="font-outfit text-lg font-semibold">
-                {item.price.toFixed(2)}€
+                {(item.price * item.quantity).toFixed(2)}€
               </p>
             </div>
           </div>

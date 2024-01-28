@@ -14,7 +14,11 @@ const DataContextProvider = ({ children }) => {
   const totalCuantity = state.reduce((acc, currenProduct) => {
     return acc + currenProduct.quantity
    }, 0);
-  console.log(totalCuantity);
+
+  const totalPrice = state.reduce((acc, currenProduct)=>{
+    return acc + currenProduct.quantity * currenProduct.price
+  },0)
+
  
   useEffect(() => {
     fetch("https://cafe-de-altura.vercel.app/api/products")
@@ -28,7 +32,7 @@ const DataContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, state, dispatch, totalCuantity }}>
+    <DataContext.Provider value={{ data, state, dispatch, totalCuantity, totalPrice }}>
       {children}
     </DataContext.Provider>
   );

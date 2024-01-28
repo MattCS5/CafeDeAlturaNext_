@@ -2,8 +2,8 @@
 import React from "react";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import PagoCarrito from "./PagoCarrito";
 import BagProductCard from "./BagProductCard";
+import TotalCarrito from "./TotalCarrito";
 
 const Cesta = () => {
   const { totalCuantity } = useContext(DataContext);
@@ -18,7 +18,7 @@ const Cesta = () => {
         <BagProductCard />
 
         <div>
-          <PagoCarrito />
+          <TotalCarrito/>
         </div>
       </div>
     </div>

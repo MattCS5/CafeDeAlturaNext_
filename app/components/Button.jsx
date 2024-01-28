@@ -20,10 +20,11 @@ const ButtonVariants = cva(
             añadir: 
             "bg-[#6A8D7D] group-hover:bg-[#2A5B45]",
             agotado:
-            "bg-[#CEC6BB]"
+            "bg-[#CEC6BB]",
+           
 
          },
-         // <div  className="text-sm py-3 px-6 "></div>
+         
          /* button sizes */
          size: {
             small: ["text-sm", "py-2", "px-2"],
@@ -63,18 +64,4 @@ export default function Button({ intent, size, roundness, children,imagen, onCli
 }
 
 
-// import React from "react";
-// import Image from "next/image";
 
-// const Button = ({ backgroundColor, text, colorText, paddin, imagen }) => {
-//   const buttonClasses = `flex px-6 py-3 gap-2 rounded bg-${backgroundColor} text-${colorText} p-${paddin}`;
-
-//   return (
-//     <button className={buttonClasses}>
-//       {imagen && <Image width={20} height={20} src={imagen} alt="" />}
-//       {text}
-//     </button>
-//   );
-// };
-
-// export default Button;
