@@ -65,7 +65,9 @@ const BagProductCard = () => {
         <div className="h-[1px] bg-[#E3DED7] "></div>
       </div>
 
-      <div>
+      <div className=" flex flex-col gap-6">
+      <h3 className="font-outfit text-lg font-semibold">Seleccionar envío</h3>
+
         <Envio />
       </div>
     </div>
