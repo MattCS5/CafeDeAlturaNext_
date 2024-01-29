@@ -10,6 +10,8 @@ export const DataContext = createContext(null);
 const DataContextProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const [state, dispatch] = useReducer(cartReducer, []);
+  const [deliveryPrice, setDeliveryPrice]= useState(0);
+  const [open, setOpen] = useState(false);
 
   const totalCuantity = state.reduce((acc, currenProduct) => {
     return acc + currenProduct.quantity
@@ -18,6 +20,12 @@ const DataContextProvider = ({ children }) => {
   const totalPrice = state.reduce((acc, currenProduct)=>{
     return acc + currenProduct.quantity * currenProduct.price
   },0)
+
+  //  const calcularPrecioTotal = () => {
+  //     const costoEnvio = deliveryPrice === 'Express' ? 9 : 0;
+  //     const total = totalPrice + costoEnvio;
+  //     return total.toFixed(2);
+  // };
 
  
   useEffect(() => {
@@ -32,7 +40,7 @@ const DataContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, state, dispatch, totalCuantity, totalPrice }}>
+    <DataContext.Provider value={{ data, state, dispatch, totalCuantity, totalPrice, setDeliveryPrice, deliveryPrice, open, setOpen }}>
       {children}
     </DataContext.Provider>
   );

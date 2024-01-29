@@ -15,7 +15,7 @@ const ShoppingCart = () => {
     dispatch({ accion: "COUNTER", products: product, plusOrMinus: accionToDo });
   };
 
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, setOpen } = useContext(DataContext);
 
   if (state.length === 0) {
     return (
@@ -75,6 +75,7 @@ const ShoppingCart = () => {
 
       <div className="flex pt-3  justify-between items-center gap-2">
           <Link
+            onClick={() => setOpen(false)}
             href="/bagShopPage"
             className="flex  gap-2 py-3 px-6 w-36 rounded text-white  bg-[#2a5b45]"
           >

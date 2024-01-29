@@ -2,28 +2,15 @@ import React from "react";
 import Button from "./Button";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import { useForm, useWatch } from 'react-hook-form';
+
 
 
 
 const TotalCarrito = () => {
 
   const { totalPrice } = useContext(DataContext);
-  const { control } = useForm();
-  const selectedEnvioOption = useWatch({
-      control,
-      name: 'envioOption',
-  });
+  const {deliveryPrice } = useContext(DataContext);
 
-  console.log('selectedEnvioOption:', selectedEnvioOption);
-
-  const calcularPrecioTotal = () => {
-      const costoEnvio = selectedEnvioOption === 'opcion2' ? 9.00 : 0.00;
-      const total = totalPrice + costoEnvio;
-      return total.toFixed(2);
-  };
-
-  console.log('calcularPrecioTotal():', calcularPrecioTotal());
   return (
     <div className="flex flex-col rounded bg-[#F7F5F3] ">
       <div className=" flex flex-col gap-4 p-6">
@@ -42,7 +29,7 @@ const TotalCarrito = () => {
             <div className="flex justify-between">
               <p>ENVÍO</p>
               <p>
-                <b>?</b>
+                <b>{deliveryPrice === "Express" ? "9,00 €" : "GRATIS"}</b>
               </p>
             </div>
             <div className="h-[1px] bg-[#E3DED7]"></div>
@@ -52,11 +39,11 @@ const TotalCarrito = () => {
                 <b>TOTAL</b>
               </p>
               <p>
-                <b>{calcularPrecioTotal()}€</b>
+                <b>{(totalPrice + (deliveryPrice === "Express" ? 9 : 0)).toFixed(2)}€</b>
               </p>
             </div>
             <div className="flex justify-end ">
-              <p>Incluye {totalPrice * 0.21.toFixed(2)}€ de IVA</p>
+              <p>Incluye {(totalPrice * 0.21).toFixed(2)}€ de IVA</p>
             </div>
           </div>
         </div>

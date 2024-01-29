@@ -13,7 +13,7 @@ const Origenes = () => {
         Últimos orígenes
       </h2>
 
-      <div className=" flex flex-wrap gap-6 justify-center">
+      <div className=" grid gap-6 justify-center grid-cols-4">
         {data?.map((cafe) => {
           return (
             <ProductCard

@@ -10,14 +10,13 @@ import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const { state, totalCuantity } = useContext(DataContext);
+ 
+  const { state, totalCuantity, open, setOpen} = useContext(DataContext);
   
-  
-
   return (
     <div className="  h-16 bg-black text-white mb-4 flex items-center  justify-between py-3 px-10 font-outfit fixed top-0  w-full">
-      <div>
+      <div onClick={() => setOpen(false)}>
+        
         <Link className="text-2xl flex gap-2 items-center outfit" href="/">
           <p>cafedealtura.com</p>
           <Image
@@ -26,12 +25,14 @@ const Navbar = () => {
             alt="cafe"
             width={25}
             height={25}
+            
           />
         </Link>
       </div>
 
-      <div className="flex items-center gap-4 outfit hover:bg">
+      <div onClick={() => setOpen(false)} className="flex items-center gap-4 outfit hover:bg">
         <Link href="/shopPage" className="hover:bg-[#515051] rounded p-2">
+        
           Tienda
         </Link>
 
@@ -55,7 +56,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
+      <div onClick={() => setOpen(false)}>
         <Link href="/telefonoPage" className="flex items-center gap-4 outfit">
           <div className="flex gap-2">
             <Image src={Telefono} width={25} height={25} alt="Telefono" />
