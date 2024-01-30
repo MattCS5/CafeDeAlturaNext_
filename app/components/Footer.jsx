@@ -6,9 +6,12 @@ import phone from '../assets/Phone.svg'
 import mail from '../assets/Mail.svg'
 import Image from 'next/image'
 
+
+
 const Footer = () => {
+
   return (
-    <div className='flex flex-col bg-black gap-4 px-10 pt-7 pb-10'>
+    <div  className='flex flex-col bg-black gap-4 px-10 pt-7 pb-10'>
       
 
       <div className='flex text-white font-outfit '>

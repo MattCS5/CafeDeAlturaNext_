@@ -2,13 +2,17 @@ import phone from '../assets/Phone.png'
 import mail from "../assets/Mail.png"
 import React from 'react'
 import Image from 'next/image'
-import Button from './Button'
 import Form from './Form'
+import { DataContext } from '../context/DataContext';
+import { useContext } from "react";
+
 
 const Split = () => {
+  const {setOpen} = useContext(DataContext);
+
 
   return (
-    <div className='flex bg-[#E3DED7] px-10 font-outfit gap-6 justify-center '>
+    <div onClick={() => setOpen(false)} className='flex bg-[#E3DED7] px-10 font-outfit gap-6 justify-center '>
       <div className='flex flex-col justify-center w-[588px]'>
 
         <div className='flex flex-col gap-3'>

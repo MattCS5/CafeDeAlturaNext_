@@ -8,12 +8,12 @@ import Image from 'next/image';
 import { DataContext } from '../context/DataContext';
 
 const Novedades = () => {
-  const { data } = useContext(DataContext) 
+  const { data, setOpen } = useContext(DataContext) 
   
 
 
   return (
-  <div className='flex flex-col  p-10 gap-10 items-center'>
+  <div onClick={() => setOpen(false)} className='flex flex-col  p-10 gap-10 items-center'>
 
       <h2 className='flex text-[rgb(42,91,69)] text-2xl font-medium'> Novedades </h2>
 

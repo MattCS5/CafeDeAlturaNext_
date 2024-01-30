@@ -2,11 +2,13 @@ import React from 'react'
 import cafeteria from '../assets/Cafeteria.png'
 import TextWraperDos from './TextWraperDos'
 import Image from 'next/image'
-
+import { DataContext } from '../context/DataContext';
+import { useContext } from "react";
 
 const WraperDos = () => {
+  const {setOpen} = useContext(DataContext);
   return (
-    <div className='flex px-12 py-10 gap-6 justify-around items-center font-outfit '>
+    <div onClick={() => setOpen(false)} className='flex px-12 py-10 gap-6 justify-around items-center font-outfit '>
 
     <TextWraperDos/>
 

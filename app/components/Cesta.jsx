@@ -6,10 +6,10 @@ import BagProductCard from "./BagProductCard";
 import TotalCarrito from "./TotalCarrito";
 
 const Cesta = () => {
-  const { totalCuantity } = useContext(DataContext);
+  const { setOpen,totalCuantity } = useContext(DataContext);
 
   return (
-    <div className="h-screen">
+    <div onClick={() => setOpen(false)} className="h-screen">
       <h1 className="flex justify-center items-center  font-outfit text-2xl font-medium text-[#2A5B45]">
         Cesta ({totalCuantity})
       </h1>

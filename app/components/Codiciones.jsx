@@ -4,18 +4,13 @@ import condiciones from "../assets/condiciones.jpg"
 import Check from "../assets/Check.svg"
 import Truck from "../assets/Truck.svg"
 import Gift from "../assets/Gift.svg"
-import Image from 'next/image'
 
-
-// const BackgrounImageCofee = {
-//   backgroundImage : url(`${condiciones}`)
-  
-// }
 
 const Condiciones = () => {
+
   return (
     
-        <div className=" flex flex-col bg-cover bg-center h-96 px-36 py-12 font-outfit bg-[url('../public/condiciones.jpg')] ">
+        <div  className=" flex flex-col bg-cover bg-center h-96 px-36 py-12 font-outfit bg-[url('../public/condiciones.jpg')] ">
 
           <div className='flex flex-col justify-center items-center gap-5'>
             <p className='text-2xl text-white font-medium text-cent er'>Café con las mejores condiciones</p>

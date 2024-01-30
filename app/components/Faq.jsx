@@ -3,10 +3,14 @@ import FaqWrap from './FaqWrap';
 import  Link  from 'next/link' ;
 import flechaBlanca from '../assets/flechaBlanca.svg';
 import Image from 'next/image';
+import { DataContext } from '../context/DataContext';
+import { useContext } from "react";
 
 const Faq = () => {
+  const {setOpen} = useContext(DataContext);
+
   return (
-    <div className='flex flex-col justify-center items-center  bg-[#2A5B45] font-outfit px-96 py-12 gap-6'>
+    <div onClick={() => setOpen(false)} className='flex flex-col justify-center items-center  bg-[#2A5B45] font-outfit px-96 py-12 gap-6'>
         <h2 className='flex flex-col text-white text-2xl'>Preguntas frecuentes</h2>
 
           <FaqWrap 

@@ -2,10 +2,14 @@ import React from 'react'
 import plantaCafe from "../assets/plantaCafe.jpg"
 import TextWraper from './TextWraper'
 import Image from 'next/image'
+import { useContext } from "react";
+import { DataContext } from "../context/DataContext";
 
 const Wrapper = () => {
+  const {setOpen} = useContext(DataContext);
+
   return (
-    <div className='flex px-12 py-10 gap-6 justify-around items-center font-outfit'>
+    <div onClick={() => setOpen(false)} className='flex px-12 py-10 gap-6 justify-around items-center font-outfit'>
 
         <div className=' flex flex-col justify-around gap-4 '>
           <TextWraper/>
