@@ -29,14 +29,14 @@ const MetodoDePago = () => {
                 <div className="flex flex-col gap-[3px]">
                     <label
                         for="titular"
-                        className="text-xs font-normal text-[#000000]">
+                        className="text-xs font-normal text-[#000000]  hover:border-[#9B9EA3] focus-within:outline-[#3F8F6B]">
                         Titular
                     </label>
                     <input
                         type="text"
                         id="titular"
                         name="titular"
-                        className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]"
+                        className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]  hover:border-[#9B9EA3] focus-within:outline-[#3F8F6B]"
                         placeholder="Nombre del titular">
                     </input>
                 </div>
@@ -52,7 +52,7 @@ const MetodoDePago = () => {
                         type="text"
                         id="numeroTarjeta"
                         name="numeroTarjeta"
-                        className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]"
+                        className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]  hover:border-[#9B9EA3] focus-within:outline-[#3F8F6B]"
                         placeholder="1234 1234 1234 1234">
                     </input>
                 </div>
@@ -72,7 +72,7 @@ const MetodoDePago = () => {
                     id="fechaCaducidad"
                     name="fechaCaducidad"
                     placeholder="MM / YY"
-                    className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]">
+                    className="px-2 py-[10px] w-full border rounded-md text-xs text-[#515051]  hover:border-[#9B9EA3] focus-within:outline-[#3F8F6B]">
 
                     </input>
                 </div>

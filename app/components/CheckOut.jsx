@@ -15,7 +15,7 @@ const CheckOut = () => {
        
        <div className='flex gap-6 justify-around'>
         <MetodoDePago/>
-        <TotalCarrito/>
+        <TotalCarrito checkout={true} />
        </div>
 
        <div className='flex gap-6' >

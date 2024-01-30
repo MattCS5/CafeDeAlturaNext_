@@ -10,7 +10,7 @@ const Cesta = () => {
 
   return (
     <div onClick={() => setOpen(false)} className="h-screen">
-      <h1 className="flex justify-center items-center  font-outfit text-2xl font-medium text-[#2A5B45]">
+      <h1 className="flex justify-center items-center  font-outfit text-2xl font-medium text-[#2A5B45] pt-10">
         Cesta ({totalCuantity})
       </h1>
 
