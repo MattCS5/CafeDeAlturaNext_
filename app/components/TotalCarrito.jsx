@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Button from "./Button";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
+import Link from "next/link";
 
 
 
@@ -12,8 +14,8 @@ const TotalCarrito = () => {
   const {deliveryPrice } = useContext(DataContext);
 
   return (
-    <div className="flex flex-col rounded bg-[#F7F5F3] ">
-      <div className=" flex flex-col gap-4 p-6">
+    <div className="flex flex-col rounded bg-[#F7F5F3] h-[280px]">
+      <div className=" flex flex-col gap-4 p-6 ">
         <h3 className="font-outfit font-semibold text-lg">Total del carrito</h3>
         <div>
           <div className="h-[1px] bg-[#E3DED7]"></div>
@@ -48,8 +50,14 @@ const TotalCarrito = () => {
           </div>
         </div>
         <div className="flex gap-4">
-        <Button intent={"secondary"} size={"medium"}>Ir al checkout</Button>
-        <button className="text-[#2A5B45] font-outfit font-semibold text-sm ">Seguir comprando</button>
+        <Link
+          href="/checkoutPage">
+          <Button intent={"secondary"} size={"medium"}>Ir al checkout</Button>
+        </Link>
+        <Link
+          href="/shopPage">
+          <Button intent={"secondary"} size={"medium"}>Seguir comprando</Button>
+        </Link>
         </div>
       </div>
     </div>

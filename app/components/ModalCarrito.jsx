@@ -26,7 +26,7 @@ const ShoppingCart = () => {
   }
 
   return (
-    <div className=" flex  flex-col fixed top-16 right-0 p-5 bg-opacity-90 bg-[#f7f5f3]  text-black rounded-b-xl font-outfit z-10 ">
+    <div className=" flex  flex-col fixed top-16 right-0 p-5 bg-opacity-90 bg-[#f7f5f3]  text-black rounded-b-xl font-outfit">
       <h2 className="text-lg font-semibold text-[#2a5b45]">Cesta: </h2>
       {state.map((item) => (
         <div
