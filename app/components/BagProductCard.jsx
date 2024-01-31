@@ -32,9 +32,7 @@ const BagProductCard = () => {
                 </button>
 
                 <div className="bg-[#F7F5F3] rounded-full w-6 h-6 justify-center text-center">
-                  <p>
-                    {item.quantity}
-                  </p>
+                  <p>{item.quantity}</p>
                 </div>
 
                 <button
@@ -66,7 +64,7 @@ const BagProductCard = () => {
       </div>
 
       <div className=" flex flex-col gap-6">
-      <h3 className="font-outfit text-lg font-semibold">Seleccionar envío</h3>
+        <h3 className="font-outfit text-lg font-semibold">Seleccionar envío</h3>
 
         <Envio />
       </div>

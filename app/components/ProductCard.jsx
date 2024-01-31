@@ -1,20 +1,16 @@
 import Button from "./Button";
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 
-
 const ProductCard = ({ cafeImg, name, price, available, infoCafe }) => {
-
-  const {dispatch} = useContext(DataContext)
+  const { dispatch } = useContext(DataContext);
 
   const handleAddToCart = (product) => {
-    
-    dispatch(
-      {
+    dispatch({
       accion: "ADD_ITEM",
-      products: product});
-}
-
+      products: product,
+    });
+  };
 
   return (
     <div className={`group ${available ? "opacity-100" : "opacity-40 -z-10"}`}>
@@ -25,15 +21,9 @@ const ProductCard = ({ cafeImg, name, price, available, infoCafe }) => {
           <p>{price.toFixed(2)}€</p>
         </div>
         <Button
-
-          onClick={()=>handleAddToCart(infoCafe)}
+          onClick={() => handleAddToCart(infoCafe)}
           intent={available ? "añadir" : "agotado"}
           size={"small"}
-          // className={`font-outfit ${
-          //   available
-          //     ? "bg-[#6A8C7D] group-hover:bg-[#2A5B45]  rounded p-2 text-white"
-          //     : "bg-[#c3b298] rounded p-2 text-white"
-          // }`}
         >
           {available ? " Añadir" : "Agotado"}
         </Button>

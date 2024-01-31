@@ -6,7 +6,7 @@ import BagProductCard from "./BagProductCard";
 import TotalCarrito from "./TotalCarrito";
 
 const Cesta = () => {
-  const { setOpen,totalCuantity } = useContext(DataContext);
+  const { setOpen, totalCuantity } = useContext(DataContext);
 
   return (
     <div onClick={() => setOpen(false)} className="h-screen">
@@ -18,7 +18,7 @@ const Cesta = () => {
         <BagProductCard />
 
         <div>
-          <TotalCarrito/>
+          <TotalCarrito />
         </div>
       </div>
     </div>

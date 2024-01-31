@@ -15,9 +15,9 @@ const ShoppingCart = () => {
     dispatch({ accion: "COUNTER", products: product, plusOrMinus: accionToDo });
   };
 
-  const { state, dispatch, setOpen } = useContext(DataContext);
+  const { bag, dispatch, setOpen } = useContext(DataContext);
 
-  if (state.length === 0) {
+  if (bag.length === 0) {
     return (
       <div className="fixed top-16 right-0 p-5 bg-black text-white rounded-b-xl font-outfit">
         <h2>El carrito está vacío...</h2>
@@ -26,11 +26,11 @@ const ShoppingCart = () => {
   }
 
   return (
-    <div className=" flex  flex-col fixed top-16 right-0 p-5 bg-opacity-90 bg-[#f7f5f3]  text-black rounded-b-xl font-outfit">
+    <div className=" flex  flex-col fixed top-16 right-0 p-3 bg-opacity-90 bg-[#f7f5f3]  text-black rounded-b-xl font-outfit h-min">
       <h2 className="text-lg font-semibold text-[#2a5b45]">Cesta: </h2>
-      {state.map((item) => (
+      {bag.map((item) => (
         <div
-          className="flex p-2 gap-6  font-outfit justify-between "
+          className="flex p-2 gap-2  font-outfit justify-between "
           key={item.id}
         >
           <div className="flex p-2 items-center font-outfit ">
@@ -55,8 +55,8 @@ const ShoppingCart = () => {
                 <Plus />
               </button>
             </div>
-            <div className=" flex gap-6 font-outfit ">
-              <Image src={item.img} alt="cafe" width={80} height={80} />
+            <div className=" flex gap-2 font-outfit ">
+              <Image src={item.img} alt="cafe" width={50} height={50} />
 
               <div className="font-outfit text-sm ">
                 <h5 className=" font-semibold  ">{item.name}</h5>
@@ -73,23 +73,24 @@ const ShoppingCart = () => {
         </div>
       ))}
 
-      <div className="flex pt-3  justify-between items-center gap-2">
-          <Link
-            onClick={() => setOpen(false)}
-            href="/bagShopPage"
-            className="flex  gap-2 py-3 px-6 w-36 rounded text-white  bg-[#2a5b45]"
-          >
-            Ir a la Cesta
-          </Link>
+      <div className="flex pt-2  justify-between items-center gap-2">
+        <Link
+          onClick={() => setOpen(false)}
+          href="/bagShopPage"
+          className="flex  gap-2 py-3 px-6 w-36 rounded text-white  bg-[#2a5b45]"
+        >
+          Ir a la Cesta
+        </Link>
 
-          <button
-            className="text-[#2a5b45] font-outfit "
-            type="button"
-            onClick={() => handleRemoveAllToCart(state)}
-          >
-            <b><Trash2/> </b>
-          </button>
-
+        <button
+          className="text-[#2a5b45] font-outfit "
+          type="button"
+          onClick={() => handleRemoveAllToCart(bag)}
+        >
+          <b>
+            <Trash2 />{" "}
+          </b>
+        </button>
       </div>
     </div>
   );

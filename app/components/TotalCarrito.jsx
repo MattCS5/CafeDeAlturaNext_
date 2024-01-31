@@ -5,11 +5,8 @@ import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import Link from "next/link";
 
-const TotalCarrito = ({checkout}) => {
-  console.log("checkout:", checkout);
-  const { totalPrice } = useContext(DataContext);
-  const {deliveryPrice } = useContext(DataContext);
-  
+const TotalCarrito = ({ checkout }) => {
+  const { totalPrice, deliveryPrice } = useContext(DataContext);
 
   return (
     <div className="flex flex-col rounded bg-[#F7F5F3] h-min w-[384px]">
@@ -39,7 +36,12 @@ const TotalCarrito = ({checkout}) => {
                 <b>TOTAL</b>
               </p>
               <p>
-                <b>{(totalPrice + (deliveryPrice === "Express" ? 9 : 0)).toFixed(2)}€</b>
+                <b>
+                  {(totalPrice + (deliveryPrice === "Express" ? 9 : 0)).toFixed(
+                    2
+                  )}
+                  €
+                </b>
               </p>
             </div>
             <div className="flex justify-end ">
@@ -48,28 +50,30 @@ const TotalCarrito = ({checkout}) => {
           </div>
         </div>
 
+        {!checkout && (
+          <div className="flex gap-4 justify-start items-center">
+            <Link href="/checkoutPage">
+              <Button intent={"secondary"} size={"medium"}>
+                Ir al checkout
+              </Button>
+            </Link>
+            <Link href="/shopPage">
+              <button className="font-outfit text-[#2A5B45] font-semibold text-sm px-6 py-3">
+                Seguir comprando
+              </button>
+            </Link>
+          </div>
+        )}
 
-
-        {!checkout && 
-        <div className="flex gap-4 justify-center items-center">
-          <Link
-            href="/checkoutPage">
-            <Button intent={"secondary"} size={"medium"}>Ir al checkout</Button>
-          </Link>
-          <Link
-            href="/shopPage">
-            <button className="font-outfit text-[#2A5B45] font-semibold text-sm ">Seguir comprando</button>
-          </Link>
-        </div>}
-
-        {checkout && 
-        <div className="flex gap-4  items-center">
-          <Link
-            href="/realizarPedidoPage">
-            <Button intent={"secondary"} size={"medium"}>Pagar y realizar pedido</Button>
-          </Link>
-        </div>}
-
+        {checkout && (
+          <div className="flex gap-4  items-center">
+            <Link href="/realizarPedidoPage">
+              <Button intent={"secondary"} size={"medium"}>
+                Pagar y realizar pedido
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

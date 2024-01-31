@@ -10,37 +10,48 @@ export const DataContext = createContext(null);
 const DataContextProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const [state, dispatch] = useReducer(cartReducer, []);
-  const [deliveryPrice, setDeliveryPrice]= useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
   const [open, setOpen] = useState(false);
+  const [bag, setBag] = useState(null);
 
   const totalCuantity = state.reduce((acc, currenProduct) => {
-    return acc + currenProduct.quantity
-   }, 0);
+    return acc + currenProduct.quantity;
+  }, 0);
 
-  const totalPrice = state.reduce((acc, currenProduct)=>{
-    return acc + currenProduct.quantity * currenProduct.price
-  },0)
+  const totalPrice = state.reduce((acc, currenProduct) => {
+    return acc + currenProduct.quantity * currenProduct.price;
+  }, 0);
 
-  //  const calcularPrecioTotal = () => {
-  //     const costoEnvio = deliveryPrice === 'Express' ? 9 : 0;
-  //     const total = totalPrice + costoEnvio;
-  //     return total.toFixed(2);
-  // };
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(state));
+    const stateLS = JSON.parse(localStorage.getItem("state")) ?? [];
+    setBag(stateLS);
+  }, [state]);
 
- 
   useEffect(() => {
     fetch("https://cafe-de-altura.vercel.app/api/products")
       .then((response) => response.json())
       .then((data) => {
         setData(data.products);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, state, dispatch, totalCuantity, totalPrice, setDeliveryPrice, deliveryPrice, open, setOpen }}>
+    <DataContext.Provider
+      value={{
+        data,
+        state,
+        dispatch,
+        totalCuantity,
+        totalPrice,
+        setDeliveryPrice,
+        deliveryPrice,
+        open,
+        setOpen,
+        bag,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
